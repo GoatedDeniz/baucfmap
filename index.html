@@ -13,9 +13,10 @@
         <h1>BAU Communication Faculty Classroom Guide</h1>
     </header>
 
-    <!-- Search Bar -->
+    <!-- Search Bar with Auto-Suggestions -->
     <div class="search-container">
-        <input type="text" id="searchInput" placeholder="🔍 Search for a classroom">
+        <input type="text" id="searchInput" placeholder="🔍 Search for a classroom" autocomplete="off">
+        <ul id="suggestions"></ul>
     </div>
 
     <!-- Floor Selection Menu -->
@@ -30,19 +31,9 @@
         <button onclick="showFloor(-2)">Floor -2</button>
     </div>
 
-    <!-- Floor Map Display with Classroom Labels -->
+    <!-- Floor Map Display -->
     <div class="map-container">
         <img id="floorMap" src="floor-2.png" alt="Floor Map">
-        
-        <!-- Classroom Labels (Grouped by Floor) -->
-        <div class="classroom-labels" id="floor-2-labels">
-            <div class="classroom-label" id="classroom-GLTSC01">GLTSC01</div>
-            <div class="classroom-label" id="classroom-GLTSC03">GLTSC03</div>
-            <div class="classroom-label" id="classroom-GLTBUG">GLTBUG</div>
-        </div>
-        <div class="classroom-labels" id="floor-3-labels">
-            <div class="classroom-label" id="classroom-ABC123">ABC123</div>
-        </div>
     </div>
 </body>
 </html>
