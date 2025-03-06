@@ -67,8 +67,7 @@ button:hover {
     background: lightgray;
 }
 
-/* ✅ Remove Cyan - Now Grey When Active */
-button.active {
-    background: lightgray !important;
+.active {
+    background: cyan;
     font-weight: bold;
 }
