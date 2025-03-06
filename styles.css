@@ -37,25 +37,31 @@ header {
     text-align: left; /* Keeps placeholder aligned properly */
 }
 
-/* ✅ Make Floor Buttons Appear in a Row */
+/* ✅ Make Floor Buttons Appear in a Row on All Devices */
 .floor-selector {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping on smaller screens */
-    justify-content: center; /* Centers buttons */
+    flex-wrap: wrap; /* Allows wrapping if the screen is too small */
+    justify-content: center; /* Centers the buttons */
+    align-items: center; /* Aligns them properly */
     gap: 8px; /* Adds space between buttons */
     margin-top: 20px;
+    max-width: 100%; /* Prevents overflow */
+    padding: 0 10px; /* Adds some padding on the sides */
 }
 
-/* ✅ Style Floor Buttons */
+/* ✅ Ensure Buttons Stay Small Enough for Mobile */
 button {
+    flex: 1 1 auto; /* Makes them responsive */
     width: auto; /* Adjusts width automatically */
-    min-width: 80px; /* Ensures all buttons are uniform */
+    min-width: 80px; /* Prevents shrinking too much */
+    max-width: 100px; /* Ensures they don’t stretch too far */
     padding: 10px;
     border: 1px solid black;
     background: white;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
+    text-align: center;
 }
 
 button:hover {
