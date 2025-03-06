@@ -16,7 +16,7 @@ header {
     text-align: center;
 }
 
-/* ✅ Center the Search Bar on All Devices */
+/* ✅ Center the Search Bar */
 .search-container {
     display: flex;
     justify-content: center;
@@ -25,7 +25,7 @@ header {
     margin-top: 20px;
 }
 
-/* ✅ Make Search Bar Fully Responsive */
+/* ✅ Make Search Bar Responsive */
 #searchInput {
     padding: 10px;
     font-size: 16px;
@@ -49,7 +49,6 @@ header {
     padding: 0 10px;
 }
 
-/* ✅ Ensure Buttons Stay Small Enough for Mobile */
 button {
     flex: 1 1 auto;
     width: auto;
@@ -68,15 +67,14 @@ button:hover {
     background: lightgray;
 }
 
-/* ✅ Remove Cyan - Now Grey When Active */
 button.active {
     background: lightgray !important;
     font-weight: bold;
 }
 
-/* ✅ Center Floor Map and Keep It Responsive */
+/* ✅ Floor Map Styling */
 .map-container {
-    position: relative; /* Allows text overlays */
+    position: relative;
     display: inline-block;
     margin-top: 20px;
 }
@@ -86,6 +84,13 @@ button.active {
     height: auto;
     border: 2px solid black;
     border-radius: 5px;
+}
+
+/* ✅ Classroom Labels (Initially Hidden) */
+.classroom-labels {
+    display: none;
+    position: absolute;
+    width: 100%;
 }
 
 /* ✅ Classroom Labels Overlaid on the Map */
@@ -109,7 +114,7 @@ button.active {
     transform: translate(-50%, -50%) scale(1.2);
 }
 
-/* 🔹 Adjust Label Positions to Match Your PNG */
-#classroom-GLTSC01 { top: 33%; left: 32%; }
-#classroom-GLTSC03 { top: 33%; left: 39%; }
-#classroom-GLTBUG  { top: 86%; left: 32%; }
+/* ✅ Adjust Positions for Floor 2 */
+#classroom-GLTSC01 { top: 30%; left: 25%; }
+#classroom-GLTSC03 { top: 30%; left: 50%; }
+#classroom-GLTBUG  { top: 70%; left: 25%; }
