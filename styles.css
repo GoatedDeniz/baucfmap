@@ -66,8 +66,3 @@ button {
 button:hover {
     background: lightgray;
 }
-
-.active {
-    background: cyan;
-    font-weight: bold;
-}
