@@ -73,3 +73,19 @@ button.active {
     background: lightgray !important;
     font-weight: bold;
 }
+
+/* ✅ Center Floor Map and Keep It Responsive */
+.map-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+    width: 100%;
+}
+
+#floorMap {
+    max-width: 90%; /* Prevents image from being too wide */
+    height: auto; /* Keeps the aspect ratio */
+    border: 2px solid black;
+    border-radius: 5px;
+}
