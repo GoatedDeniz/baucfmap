@@ -32,29 +32,29 @@ header {
     border: 1px solid black;
     border-radius: 5px;
     background: white;
-    width: 80%; /* Set to a higher percentage for iPhone */
-    max-width: 300px; /* Prevents it from being too wide on large screens */
-    text-align: left; /* Keeps placeholder aligned properly */
+    width: 80%;
+    max-width: 300px;
+    text-align: left;
 }
 
-/* ✅ Make Floor Buttons Appear in a Row on All Devices */
+/* ✅ Make Floor Buttons Appear in a Row */
 .floor-selector {
     display: flex;
-    flex-wrap: wrap; /* Allows wrapping if the screen is too small */
-    justify-content: center; /* Centers the buttons */
-    align-items: center; /* Aligns them properly */
-    gap: 8px; /* Adds space between buttons */
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 8px;
     margin-top: 20px;
-    max-width: 100%; /* Prevents overflow */
-    padding: 0 10px; /* Adds some padding on the sides */
+    max-width: 100%;
+    padding: 0 10px;
 }
 
 /* ✅ Ensure Buttons Stay Small Enough for Mobile */
 button {
-    flex: 1 1 auto; /* Makes them responsive */
-    width: auto; /* Adjusts width automatically */
-    min-width: 80px; /* Prevents shrinking too much */
-    max-width: 100px; /* Ensures they don’t stretch too far */
+    flex: 1 1 auto;
+    width: auto;
+    min-width: 80px;
+    max-width: 100px;
     padding: 10px;
     border: 1px solid black;
     background: white;
@@ -76,16 +76,40 @@ button.active {
 
 /* ✅ Center Floor Map and Keep It Responsive */
 .map-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
+    position: relative; /* Allows text overlays */
+    display: inline-block;
     margin-top: 20px;
-    width: 100%;
 }
 
 #floorMap {
-    max-width: 90%; /* Prevents image from being too wide */
-    height: auto; /* Keeps the aspect ratio */
+    max-width: 90%;
+    height: auto;
     border: 2px solid black;
     border-radius: 5px;
 }
+
+/* ✅ Classroom Labels Overlaid on the Map */
+.classroom-label {
+    position: absolute;
+    background: rgba(255, 255, 255, 0.8);
+    padding: 3px 5px;
+    border-radius: 3px;
+    font-weight: bold;
+    font-size: 14px;
+    color: black;
+    text-align: center;
+    transform: translate(-50%, -50%);
+    transition: 0.3s;
+}
+
+/* ✅ Highlight When Searched */
+.classroom-label.highlight {
+    background: yellow;
+    color: black;
+    transform: translate(-50%, -50%) scale(1.2);
+}
+
+/* 🔹 Adjust Label Positions to Match Your PNG */
+#classroom-GLTSC01 { top: 30%; left: 25%; }
+#classroom-GLTSC03 { top: 30%; left: 50%; }
+#classroom-GLTBUG  { top: 70%; left: 25%; }
