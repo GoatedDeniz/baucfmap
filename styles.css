@@ -37,18 +37,20 @@ header {
     text-align: left; /* Keeps placeholder aligned properly */
 }
 
-/* ✅ Floor Selection Buttons - Aligning in a Column */
+/* ✅ Make Floor Buttons Appear in a Row */
 .floor-selector {
     display: flex;
-    flex-direction: column;
-    align-items: center; /* Centers buttons */
+    flex-wrap: wrap; /* Allows wrapping on smaller screens */
+    justify-content: center; /* Centers buttons */
+    gap: 8px; /* Adds space between buttons */
     margin-top: 20px;
 }
 
+/* ✅ Style Floor Buttons */
 button {
-    width: 120px;
+    width: auto; /* Adjusts width automatically */
+    min-width: 80px; /* Ensures all buttons are uniform */
     padding: 10px;
-    margin: 5px 0;
     border: 1px solid black;
     background: white;
     cursor: pointer;
