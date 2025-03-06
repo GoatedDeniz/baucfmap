@@ -22,19 +22,24 @@ function showFloor(floor) {
     if (selectedButton) {
         selectedButton.classList.add("active");
     }
+
+    // Ensure suggestions disappear when floor changes
+    hideSuggestions();
 }
 
 // Function to handle search
-document.getElementById("searchInput").addEventListener("keyup", function(event) {
-    let query = this.value.toUpperCase().trim();
+document.getElementById("searchInput").addEventListener("keydown", function(event) {
+    if (event.key === "Enter") {
+        let query = this.value.toUpperCase().trim();
+        
+        if (classrooms[query]) {
+            showFloor(classrooms[query]); // Switch to correct floor
+            this.value = ""; // Clear search input
+        }
 
-    if (event.key === "Enter" && classrooms[query]) {
-        showFloor(classrooms[query]); // Switch to correct floor
-        this.value = ""; // Clear search input
-        hideSuggestions(); // Hide auto-suggestions
+        hideSuggestions(); // Close auto-suggestions immediately
+        event.preventDefault(); // Prevent unnecessary form submission on mobile
     }
-
-    updateSuggestions(query);
 });
 
 // Function to update auto-suggestions
@@ -76,4 +81,9 @@ document.addEventListener("click", function(event) {
     if (!event.target.closest(".search-container")) {
         hideSuggestions();
     }
+});
+
+// Listen for input changes to update suggestions dynamically
+document.getElementById("searchInput").addEventListener("input", function() {
+    updateSuggestions(this.value.toUpperCase().trim());
 });
