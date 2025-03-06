@@ -31,7 +31,7 @@ document.getElementById("searchInput").addEventListener("keyup", function(event)
     if (event.key === "Enter" && classrooms[query]) {
         showFloor(classrooms[query]); // Switch to correct floor
         this.value = ""; // Clear search input
-        document.getElementById("suggestions").style.display = "none"; // Hide suggestions
+        hideSuggestions(); // Hide auto-suggestions
     }
 
     updateSuggestions(query);
@@ -43,7 +43,7 @@ function updateSuggestions(query) {
     suggestionsBox.innerHTML = "";
 
     if (query.length === 0) {
-        suggestionsBox.style.display = "none";
+        hideSuggestions();
         return;
     }
 
@@ -56,12 +56,24 @@ function updateSuggestions(query) {
             suggestion.onclick = function() {
                 document.getElementById("searchInput").value = classroom;
                 showFloor(classrooms[classroom]); // Redirect on click
-                suggestionsBox.style.display = "none";
+                hideSuggestions();
             };
             suggestionsBox.appendChild(suggestion);
         });
         suggestionsBox.style.display = "block";
     } else {
-        suggestionsBox.style.display = "none";
+        hideSuggestions();
     }
 }
+
+// Function to hide suggestions
+function hideSuggestions() {
+    document.getElementById("suggestions").style.display = "none";
+}
+
+// Hide suggestions when clicking outside the search bar
+document.addEventListener("click", function(event) {
+    if (!event.target.closest(".search-container")) {
+        hideSuggestions();
+    }
+});
