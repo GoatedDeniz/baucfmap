@@ -12,7 +12,7 @@ const classrooms = {
 
 // Function to show the selected floor
 function showFloor(floor) {
-    document.getElementById("floorMap").src = `floor-${floor}.tif`;
+    document.getElementById("floorMap").src = `floor-${floor}.jpg`;
 
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
