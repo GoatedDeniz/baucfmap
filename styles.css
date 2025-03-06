@@ -1,0 +1,66 @@
+/* Reset default styles */
+body {
+    font-family: Arial, sans-serif;
+    text-align: center;
+    background-color: white;
+    margin: 0;
+    padding: 0;
+}
+
+/* Header */
+header {
+    background: black;
+    color: white;
+    padding: 15px;
+    font-size: 24px;
+    text-align: center;
+}
+
+/* ✅ Center the Search Bar on All Devices */
+.search-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+/* ✅ Make Search Bar Fully Responsive */
+#searchInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: white;
+    width: 80%; /* Set to a higher percentage for iPhone */
+    max-width: 300px; /* Prevents it from being too wide on large screens */
+    text-align: left; /* Keeps placeholder aligned properly */
+}
+
+/* ✅ Floor Selection Buttons - Aligning in a Column */
+.floor-selector {
+    display: flex;
+    flex-direction: column;
+    align-items: center; /* Centers buttons */
+    margin-top: 20px;
+}
+
+button {
+    width: 120px;
+    padding: 10px;
+    margin: 5px 0;
+    border: 1px solid black;
+    background: white;
+    cursor: pointer;
+    font-size: 16px;
+    border-radius: 5px;
+}
+
+button:hover {
+    background: lightgray;
+}
+
+.active {
+    background: cyan;
+    font-weight: bold;
+}
