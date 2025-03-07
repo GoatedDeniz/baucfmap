@@ -3,8 +3,10 @@ body {
     font-family: Arial, sans-serif;
     text-align: center;
     background-color: white;
+    color: black;
     margin: 0;
     padding: 0;
+    transition: background 0.3s, color 0.3s;
 }
 
 /* Header */
@@ -38,7 +40,7 @@ header {
     text-align: left;
 }
 
-/* ✅ Auto-Suggestions Styling */
+/* ✅ Auto-Suggestions Styling with Borders */
 #suggestions {
     list-style-type: none;
     padding: 0;
@@ -58,6 +60,11 @@ header {
 #suggestions li {
     padding: 8px;
     cursor: pointer;
+    border-bottom: 1px solid #ccc; /* ✅ Adds a separating line */
+}
+
+#suggestions li:last-child {
+    border-bottom: none; /* ✅ Removes the last item's bottom border */
 }
 
 #suggestions li:hover {
@@ -113,26 +120,6 @@ button.active {
     border-radius: 5px;
 }
 
-/* Default (Light Mode) */
-body {
-    font-family: Arial, sans-serif;
-    text-align: center;
-    background-color: white;
-    color: black;
-    margin: 0;
-    padding: 0;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* Header */
-header {
-    background: black;
-    color: white;
-    padding: 8px;
-    font-size: 16px;
-    text-align: center;
-}
-
 /* ✅ Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
     body {
@@ -157,6 +144,11 @@ header {
 
     #suggestions li {
         color: white;
+        border-bottom: 1px solid #444; /* ✅ Keeps separators visible in dark mode */
+    }
+
+    #suggestions li:last-child {
+        border-bottom: none;
     }
 
     #suggestions li:hover {
@@ -173,4 +165,3 @@ header {
         background: #555;
     }
 }
-
