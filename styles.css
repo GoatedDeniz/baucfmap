@@ -31,15 +31,15 @@ header {
 /* ✅ Search Box with Persistent Magnifying Glass */
 .search-wrapper {
     position: relative;
-    width: 90%; /* ✅ Adjusted to prevent oversized search bar */
-    max-width: 320px; /* ✅ Keeps it from getting too large */
+    width: 80%;
+    max-width: 300px;
 }
 
 /* ✅ Magnifying Glass Icon Stays Visible */
 .search-wrapper::before {
     content: "🔍";  /* Unicode magnifying glass */
     position: absolute;
-    left: 12px; /* ✅ Adjusted spacing */
+    left: 10px; /* Adjust spacing */
     top: 50%;
     transform: translateY(-50%);
     font-size: 16px;
@@ -49,7 +49,7 @@ header {
 
 /* ✅ Input Field Adjusted to Avoid Icon Overlap */
 #searchInput {
-    padding: 10px 10px 10px 35px; /* ✅ Extra left padding to prevent overlap */
+    padding: 10px 10px 10px 30px; /* Extra left padding to prevent overlap */
     font-size: 16px;
     border: 1px solid black;
     border-radius: 5px;
@@ -63,8 +63,8 @@ header {
     list-style-type: none;
     padding: 0;
     margin: 0;
-    width: 90%;
-    max-width: 320px;
+    width: 80%;
+    max-width: 300px;
     background: white;
     border: 1px solid black;
     position: absolute;
@@ -150,7 +150,7 @@ button.active {
     }
 
     .search-wrapper::before {
-        color: #aaa; /* ✅ Lighter magnifying glass in dark mode */
+        color: #aaa; /* Lighter magnifying glass in dark mode */
     }
 
     #searchInput {
