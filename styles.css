@@ -28,33 +28,15 @@ header {
     position: relative;
 }
 
-/* ✅ Search Box with Persistent Magnifying Glass */
-.search-wrapper {
-    position: relative;
-    width: 80%;
-    max-width: 300px;
-}
-
-/* ✅ Magnifying Glass Icon Stays Visible */
-.search-wrapper::before {
-    content: "🔍";  /* Unicode magnifying glass */
-    position: absolute;
-    left: 10px; /* Adjust spacing */
-    top: 50%;
-    transform: translateY(-50%);
-    font-size: 16px;
-    color: gray;
-    pointer-events: none; /* Prevents interaction */
-}
-
-/* ✅ Input Field Adjusted to Avoid Icon Overlap */
+/* ✅ Make Search Bar Responsive */
 #searchInput {
-    padding: 10px 10px 10px 30px; /* Extra left padding to prevent overlap */
+    padding: 10px;
     font-size: 16px;
     border: 1px solid black;
     border-radius: 5px;
     background: white;
-    width: 100%;
+    width: 80%;
+    max-width: 300px;
     text-align: left;
 }
 
@@ -78,11 +60,11 @@ header {
 #suggestions li {
     padding: 8px;
     cursor: pointer;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; /* ✅ Adds a separating line */
 }
 
 #suggestions li:last-child {
-    border-bottom: none;
+    border-bottom: none; /* ✅ Removes the last item's bottom border */
 }
 
 #suggestions li:hover {
@@ -149,10 +131,6 @@ button.active {
         background: #1f1f1f;
     }
 
-    .search-wrapper::before {
-        color: #aaa; /* Lighter magnifying glass in dark mode */
-    }
-
     #searchInput {
         background: #333;
         color: white;
@@ -166,7 +144,7 @@ button.active {
 
     #suggestions li {
         color: white;
-        border-bottom: 1px solid #444;
+        border-bottom: 1px solid #444; /* ✅ Keeps separators visible in dark mode */
     }
 
     #suggestions li:last-child {
