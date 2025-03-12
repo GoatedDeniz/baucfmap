@@ -9,13 +9,20 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* Header */
+/* ✅ Header Styling */
 header {
-    background: black;
-    color: white;
-    padding: 8px;
-    font-size: 16px;
+    width: 100%;
     text-align: center;
+    background: none; /* ✅ Removes black background */
+    padding: 0; /* ✅ Removes padding to fit image properly */
+}
+
+#headerImage {
+    width: 100%; /* ✅ Ensures it stretches across the full width */
+    max-width: 600px; /* ✅ Adjust max width as needed */
+    height: auto; /* ✅ Maintains aspect ratio */
+    display: block;
+    margin: 0 auto; /* ✅ Centers the image */
 }
 
 /* ✅ Center the Search Bar */
