@@ -116,8 +116,8 @@ button.active {
 #floorMap {
     max-width: 90%;
     height: auto;
-    border: 2px solid black;
-    border-radius: 5px;
+    border: none; /* ✅ Removes the border */
+    border-radius: 0; /* ✅ Ensures no rounded edges */
 }
 
 /* ✅ Dark Mode Styles */
