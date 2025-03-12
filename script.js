@@ -3,16 +3,23 @@ const classrooms = {
     "GLTTV": -2, "DARKROOM": -2, "GLTMOVIE": -2, "GLTEDIT1": -2, "GLTEDIT2": -2, 
     "GLTEDIT3": -2, "GLTCEP": -2,
     "GLTSC01": 2, "GLTSC03": 2, "GLTBUG": 2,
-    "GLT301 (NETFLIX CLASS)": 3, "FTV GREEN BOX STUDIO": 3, "SONY VLOG STUDIO": 3,  "CINEMA (CINE-HALL)": 3,
+    "GLT301 (NETFLIX CLASS)": 3, "FTV GREEN BOX STUDIO": 3, "SONY VLOG STUDIO": 3, "CINEMA (CINE-HALL)": 3,
     "VR LAB": 4, "AQUARIUM CLASS": 4,
     "GLTSC02": 5, "GLTMAC01": 5,
     "GLTBASIC": 6, "GLTANIM": 6, "GLTMAC02": 6, "GLT601": 6,
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Function to show the selected floor
+// Function to show the selected floor (Now Loads SVGs)
 function showFloor(floor) {
-    document.getElementById("floorMap").src = `floor-${floor}.jpg`;
+    let floorMap = document.getElementById("floorMap");
+
+    // Try loading the SVG; if it fails, show the fallback image
+    floorMap.src = `floor-${floor}.svg`;
+    floorMap.onerror = function() {
+        this.onerror = null; // Prevent infinite loop if fallback also fails
+        this.src = 'fallback.jpg'; 
+    };
 
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
