@@ -10,15 +10,23 @@ const classrooms = {
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Function to show the selected floor
+// Function to load the SVG floor plan
 function showFloor(floor) {
-    // Ensure there are no double dashes in the filename
-    let floorFilename = `floor-${floor}.svg`.replace("--", "-");
+    const floorMapContainer = document.getElementById("floorMapContainer");
+    floorMapContainer.innerHTML = `<p>Loading...</p>`; // Show loading text
 
-    console.log(`Trying to load: ${floorFilename}`); // Debugging output
-
-    // Set the image source, adding a cache-bypass parameter
-    document.getElementById("floorMap").src = `https://baucfclassrooms.com/${floorFilename}?nocache=${Date.now()}`;
+    // Fetch the SVG and insert it into the page
+    fetch(`https://baucfclassrooms.com/floor-${floor}.svg?nocache=${Date.now()}`)
+        .then(response => {
+            if (!response.ok) throw new Error("Failed to load SVG");
+            return response.text();
+        })
+        .then(svgData => {
+            floorMapContainer.innerHTML = svgData; // Insert SVG content
+        })
+        .catch(() => {
+            floorMapContainer.innerHTML = `<img src="fallback.jpg" alt="Floor Map Not Available">`;
+        });
 
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
