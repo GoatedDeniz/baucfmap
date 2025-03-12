@@ -18,6 +18,14 @@ header {
     text-align: center;
 }
 
+/* ✅ BAU SVG Title */
+#bauTitle {
+    display: block;
+    margin: 10px auto;
+    max-width: 200px; /* Adjust width as needed */
+    height: auto;
+}
+
 /* ✅ Center the Search Bar */
 .search-container {
     display: flex;
@@ -106,7 +114,7 @@ button.active {
     font-weight: bold;
 }
 
-/* ✅ Floor Map Styling */
+/* ✅ Floor Map Styling (Border Removed) */
 .map-container {
     position: relative;
     display: inline-block;
@@ -116,8 +124,8 @@ button.active {
 #floorMap {
     max-width: 90%;
     height: auto;
-    border: 2px solid black;
-    border-radius: 5px;
+    border: none; /* ✅ Removes border */
+    border-radius: 0; /* ✅ Removes rounded edges */
 }
 
 /* ✅ Dark Mode Styles */
