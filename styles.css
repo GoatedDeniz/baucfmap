@@ -9,20 +9,22 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ✅ Header Styling */
+/* ✅ Header Image Placeholder - Keeps Original Size */
 header {
     width: 100%;
+    height: 80px; /* ✅ Match original header height */
     text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: none; /* ✅ Removes black background */
-    padding: 0; /* ✅ Removes padding to fit image properly */
+    padding: 0;
 }
 
 #headerImage {
-    width: 100%; /* ✅ Ensures it stretches across the full width */
-    max-width: 600px; /* ✅ Adjust max width as needed */
-    height: auto; /* ✅ Maintains aspect ratio */
-    display: block;
-    margin: 0 auto; /* ✅ Centers the image */
+    height: 80px; /* ✅ Keep the same height */
+    width: auto; /* ✅ Maintain aspect ratio */
+    max-width: 90%; /* ✅ Adjusts dynamically */
 }
 
 /* ✅ Center the Search Bar */
