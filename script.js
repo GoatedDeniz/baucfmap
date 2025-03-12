@@ -13,9 +13,11 @@ const classrooms = {
 // Function to load the SVG floor plan
 function showFloor(floor) {
     const floorMapContainer = document.getElementById("floorMapContainer");
+
+    // Set image source to the corresponding floor SVG
     floorMapContainer.innerHTML = `<img src="https://baucfclassrooms.com/floor-${floor}.svg" 
                                     onerror="this.onerror=null; this.src='fallback.jpg';" 
-                                    alt="Floor Map">`;
+                                    alt="Floor ${floor} Map">`;
 
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
@@ -25,10 +27,6 @@ function showFloor(floor) {
     if (selectedButton) {
         selectedButton.classList.add("active");
     }
-
-    // Ensure suggestions disappear when floor changes
-    hideSuggestions();
-}
 
     // Ensure suggestions disappear when floor changes
     hideSuggestions();
