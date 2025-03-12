@@ -87,3 +87,7 @@ document.addEventListener("click", function(event) {
 document.getElementById("searchInput").addEventListener("input", function() {
     updateSuggestions(this.value.toUpperCase().trim());
 });
+
+function showFloor(floor) {
+    document.getElementById("floorMap").src = `https://baucfclassrooms.com/floor-${floor}.svg?nocache=${Date.now()}`;
+}
