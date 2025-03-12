@@ -12,7 +12,7 @@ const classrooms = {
 
 // Function to show the selected floor
 function showFloor(floor) {
-    document.getElementById("floorMap").src = `floor-${floor}.svg`;
+    document.getElementById("floorMap").src = `https://baucfclassrooms.com/floor-${floor}.svg`;
 
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
