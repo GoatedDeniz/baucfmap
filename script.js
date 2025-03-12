@@ -15,7 +15,7 @@ function showFloor(floor) {
     const floorMapContainer = document.getElementById("floorMapContainer");
 
     // Set image source to the corresponding floor SVG
-    floorMapContainer.innerHTML = `<img src="https://baucfclassrooms.com/floor-${floor}.svg" 
+    floorMapContainer.innerHTML = `<img src="floor-${floor}.svg" 
                                     onerror="this.onerror=null; this.src='fallback.jpg';" 
                                     alt="Floor ${floor} Map">`;
 
