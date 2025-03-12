@@ -32,11 +32,9 @@ function showFloor(floor, highlight = null) {
         this.src = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/${baseFileName}.svg`;
     };
 
-    // Remove "active" class from all buttons
+    // Remove "active" class from all buttons and add active class to the clicked one
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
-
-    // Add "active" class to the clicked button
-    let selectedButton = document.querySelector(`button[onclick="showFloor(${floor})"]`);
+    let selectedButton = document.querySelector(`button[data-floor="${floor}"]`);
     if (selectedButton) {
         selectedButton.classList.add("active");
     }
