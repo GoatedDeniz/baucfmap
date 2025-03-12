@@ -11,8 +11,8 @@ body {
 
 /* ✅ Header Image Placeholder - Keeps Original Size */
 header {
-    width: 100%;
-    height: 80px; /* ✅ Match original header height */
+    width: 160%;
+    height: 90px; /* ✅ Match original header height */
     text-align: center;
     display: flex;
     justify-content: center;
