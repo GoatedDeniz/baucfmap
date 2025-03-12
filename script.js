@@ -10,28 +10,19 @@ const classrooms = {
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Function to show the selected floor (Now Loads SVGs)
+// Function to show the selected floor (Now Loads SVGs from GitHub Raw URL)
 function showFloor(floor) {
-    const floorMap = document.getElementById("floorMap");
-    const svgUrl = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/floor-${floor}.svg`;
+    let floorMap = document.getElementById("floorMap");
 
+    // Load SVG from GitHub raw link
+    const svgUrl = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/floor-${floor}.svg`;
+    
     floorMap.src = svgUrl;
     floorMap.onerror = function() {
-        this.onerror = null; 
-        this.src = 'fallback.jpg';
+        this.onerror = null; // Prevent infinite loop if fallback also fails
+        this.src = 'fallback.jpg'; 
     };
 
-    // Remove "active" class from all buttons
-    document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
-
-    // Add "active" class to the clicked button
-    let selectedButton = document.querySelector(`button[onclick="showFloor(${floor})"]`);
-    if (selectedButton) {
-        selectedButton.classList.add("active");
-    }
-
-    hideSuggestions();
-}
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
 
