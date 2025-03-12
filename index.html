@@ -10,7 +10,7 @@
 <body>
     <!-- Header -->
     <header>
-        <img id="headerImage" src="title.svg">
+        <h1>BAU Communication Faculty Classroom Guide</h1>
     </header>
 
     <!-- Search Bar with Auto-Suggestions -->
@@ -21,21 +21,18 @@
 
     <!-- Floor Selection Menu -->
     <div class="floor-selector">
-        <button onclick="showFloor(9)">Floor 9</button>
-        <button onclick="showFloor(8)">Floor 8</button>
         <button onclick="showFloor(7)">Floor 7</button>
         <button onclick="showFloor(6)">Floor 6</button>
         <button onclick="showFloor(5)">Floor 5</button>
         <button onclick="showFloor(4)">Floor 4</button>
         <button onclick="showFloor(3)">Floor 3</button>
         <button onclick="showFloor(2)">Floor 2</button>
-        <button onclick="showFloor(0)">Floor 0</button>
         <button onclick="showFloor(-2)">Floor -2</button>
     </div>
 
     <!-- Floor Map Display -->
-    <div id="floorMapContainer" class="map-container">
-        <p>Select a floor to view its layout.</p>
+    <div class="map-container">
+        <img id="floorMap" src="floor-2.jpg" alt="Floor Map">
     </div>
 </body>
 </html>

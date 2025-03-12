@@ -9,22 +9,13 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ✅ Header Image Placeholder - Keeps Original Size */
+/* Header */
 header {
-    width: 100%;
-    height: 80px; /* ✅ Match original header height */
+    background: black;
+    color: white;
+    padding: 8px;
+    font-size: 16px;
     text-align: center;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    background: none; /* ✅ Removes black background */
-    padding: 0;
-}
-
-#headerImage {
-    height: 80px; /* ✅ Keep the same height */
-    width: auto; /* ✅ Maintain aspect ratio */
-    max-width: 90%; /* ✅ Adjusts dynamically */
 }
 
 /* ✅ Center the Search Bar */
@@ -125,8 +116,8 @@ button.active {
 #floorMap {
     max-width: 90%;
     height: auto;
-    border: none; /* ✅ Removes the border */
-    border-radius: 0; /* ✅ Ensures no rounded edges */
+    border: 2px solid black;
+    border-radius: 5px;
 }
 
 /* ✅ Dark Mode Styles */

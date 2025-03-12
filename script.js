@@ -10,59 +10,39 @@ const classrooms = {
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Function to load and display the floor SVG
+// Function to show the selected floor
 function showFloor(floor) {
-    const floorMapContainer = document.getElementById("floorMapContainer");
-
-    // Clear previous content and show loading text
-    floorMapContainer.innerHTML = `<p>Loading floor map...</p>`;
-
-    // Create an <img> element to load the floor map
-    const img = document.createElement("img");
-    img.src = `floor-${floor}.svg`;
-    img.alt = `Floor ${floor} Map`;
-
-    // Handle image loading errors (fallback mechanism)
-    img.onerror = function () {
-        img.onerror = null;  // Prevent infinite loop
-        img.src = "fallback.jpg";
-    };
-
-    // Clear the container and append the new image
-    img.onload = function () {
-        floorMapContainer.innerHTML = "";  // Remove loading text
-        floorMapContainer.appendChild(img);
-    };
+    document.getElementById("floorMap").src = `floor-${floor}.jpg`;
 
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
 
-    // Add "active" class to the selected floor button
+    // Add "active" class to the clicked button
     let selectedButton = document.querySelector(`button[onclick="showFloor(${floor})"]`);
     if (selectedButton) {
         selectedButton.classList.add("active");
     }
 
-    // Ensure suggestions disappear when a floor is selected
+    // Ensure suggestions disappear when floor changes
     hideSuggestions();
 }
 
-// Function to handle classroom search
+// Function to handle search
 document.getElementById("searchInput").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         let query = this.value.toUpperCase().trim();
-
+        
         if (classrooms[query]) {
             showFloor(classrooms[query]); // Switch to correct floor
             this.value = ""; // Clear search input
         }
 
-        hideSuggestions(); // Close auto-suggestions
-        event.preventDefault(); // Prevent form submission on mobile
+        hideSuggestions(); // Close auto-suggestions immediately
+        event.preventDefault(); // Prevent unnecessary form submission on mobile
     }
 });
 
-// Function to update auto-suggestions dynamically
+// Function to update auto-suggestions
 function updateSuggestions(query) {
     let suggestionsBox = document.getElementById("suggestions");
     suggestionsBox.innerHTML = "";
@@ -73,12 +53,12 @@ function updateSuggestions(query) {
     }
 
     let matched = Object.keys(classrooms).filter(classroom => classroom.includes(query));
-
+    
     if (matched.length > 0) {
         matched.forEach(classroom => {
             let suggestion = document.createElement("li");
             suggestion.textContent = classroom;
-            suggestion.onclick = function () {
+            suggestion.onclick = function() {
                 document.getElementById("searchInput").value = classroom;
                 showFloor(classrooms[classroom]); // Redirect on click
                 hideSuggestions();
@@ -104,6 +84,6 @@ document.addEventListener("click", function(event) {
 });
 
 // Listen for input changes to update suggestions dynamically
-document.getElementById("searchInput").addEventListener("input", function () {
+document.getElementById("searchInput").addEventListener("input", function() {
     updateSuggestions(this.value.toUpperCase().trim());
 });
