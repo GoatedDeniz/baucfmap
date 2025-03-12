@@ -15,14 +15,14 @@ function showFloor(floor) {
     const floorMapContainer = document.getElementById("floorMapContainer");
     floorMapContainer.innerHTML = `<p>Loading...</p>`; // Show loading text
 
-    // Fetch the SVG and insert it into the page
     fetch(`https://baucfclassrooms.com/floor-${floor}.svg?nocache=${Date.now()}`)
         .then(response => {
             if (!response.ok) throw new Error("Failed to load SVG");
             return response.text();
         })
         .then(svgData => {
-            floorMapContainer.innerHTML = svgData; // Insert SVG content
+            floorMapContainer.innerHTML = ""; // Clear existing content
+            floorMapContainer.insertAdjacentHTML("afterbegin", svgData); // Insert SVG properly
         })
         .catch(() => {
             floorMapContainer.innerHTML = `<img src="fallback.jpg" alt="Floor Map Not Available">`;
