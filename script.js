@@ -10,22 +10,26 @@ const classrooms = {
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Function to show a floor (Supports Highlighted Classroom Versions)
-function showFloor(floor, classroom = null) {
+// Function to convert classroom names to valid file format
+function formatClassroomName(classroom) {
+    return classroom.toLowerCase().replace(/[^a-z0-9]/g, "");
+}
+
+// Function to show the selected floor (Now Loads Highlighted SVGs if available)
+function showFloor(floor, highlight = null) {
     let floorMap = document.getElementById("floorMap");
 
-    // Check if a classroom was searched and exists in the floor data
-    let svgFile = classroom 
-        ? `floor-${floor}.${classroom.toLowerCase().replace(/\s+/g, '')}.svg`  // Highlighted version
-        : `floor-${floor}.svg`;  // Default floor plan
+    // Determine the correct file to load
+    let baseFileName = `floor-${floor}`;
+    let fileToLoad = highlight ? `${baseFileName}.${formatClassroomName(highlight)}.svg` : `${baseFileName}.svg`;
 
-    // Load SVG from GitHub
-    const svgUrl = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/${svgFile}`;
+    // Load SVG from GitHub raw link
+    const svgUrl = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/${fileToLoad}`;
     
     floorMap.src = svgUrl;
     floorMap.onerror = function() {
         this.onerror = null; // Prevent infinite loop if fallback also fails
-        this.src = 'fallback.jpg'; 
+        this.src = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/${baseFileName}.svg`;
     };
 
     // Remove "active" class from all buttons
@@ -41,17 +45,63 @@ function showFloor(floor, classroom = null) {
     hideSuggestions();
 }
 
-// Function to handle search (Redirects to Highlighted Classroom Floor Map)
+// Function to handle search
 document.getElementById("searchInput").addEventListener("keydown", function(event) {
     if (event.key === "Enter") {
         let query = this.value.toUpperCase().trim();
         
         if (classrooms[query]) {
-            showFloor(classrooms[query], query); // Load the highlighted version
+            showFloor(classrooms[query], query); // Switch to highlighted floor plan
             this.value = ""; // Clear search input
         }
 
         hideSuggestions(); // Close auto-suggestions immediately
         event.preventDefault(); // Prevent unnecessary form submission on mobile
     }
+});
+
+// Function to update auto-suggestions
+function updateSuggestions(query) {
+    let suggestionsBox = document.getElementById("suggestions");
+    suggestionsBox.innerHTML = "";
+
+    if (query.length === 0) {
+        hideSuggestions();
+        return;
+    }
+
+    let matched = Object.keys(classrooms).filter(classroom => classroom.includes(query));
+    
+    if (matched.length > 0) {
+        matched.forEach(classroom => {
+            let suggestion = document.createElement("li");
+            suggestion.textContent = classroom;
+            suggestion.onclick = function() {
+                document.getElementById("searchInput").value = classroom;
+                showFloor(classrooms[classroom], classroom); // Show highlighted version
+                hideSuggestions();
+            };
+            suggestionsBox.appendChild(suggestion);
+        });
+        suggestionsBox.style.display = "block";
+    } else {
+        hideSuggestions();
+    }
+}
+
+// Function to hide suggestions
+function hideSuggestions() {
+    document.getElementById("suggestions").style.display = "none";
+}
+
+// Hide suggestions when clicking outside the search bar
+document.addEventListener("click", function(event) {
+    if (!event.target.closest(".search-container")) {
+        hideSuggestions();
+    }
+});
+
+// Listen for input changes to update suggestions dynamically
+document.getElementById("searchInput").addEventListener("input", function() {
+    updateSuggestions(this.value.toUpperCase().trim());
 });
