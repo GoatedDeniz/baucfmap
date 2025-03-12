@@ -12,7 +12,13 @@ const classrooms = {
 
 // Function to show the selected floor
 function showFloor(floor) {
-    document.getElementById("floorMap").src = `https://baucfclassrooms.com/floor-${floor}.svg`;
+    // Ensure there are no double dashes in the filename
+    let floorFilename = `floor-${floor}.svg`.replace("--", "-");
+
+    console.log(`Trying to load: ${floorFilename}`); // Debugging output
+
+    // Set the image source, adding a cache-bypass parameter
+    document.getElementById("floorMap").src = `https://baucfclassrooms.com/${floorFilename}?nocache=${Date.now()}`;
 
     // Remove "active" class from all buttons
     document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
@@ -87,7 +93,3 @@ document.addEventListener("click", function(event) {
 document.getElementById("searchInput").addEventListener("input", function() {
     updateSuggestions(this.value.toUpperCase().trim());
 });
-
-function showFloor(floor) {
-    document.getElementById("floorMap").src = `https://baucfclassrooms.com/floor-${floor}.svg?nocache=${Date.now()}`;
-}
