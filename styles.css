@@ -12,22 +12,74 @@ body {
 /* ✅ Header Image Placeholder - Keeps Original Size */
 header {
     width: 100%;
-    height: 80px; /* ✅ Match original header height */
+    height: 80px;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none; /* ✅ Removes black background */
+    background: none;
     padding: 0;
 }
 
 #headerImage {
-    height: 80px; /* ✅ Keep the same height */
-    width: auto; /* ✅ Maintain aspect ratio */
-    max-width: 90%; /* ✅ Adjusts dynamically */
+    height: 80px;
+    width: auto;
+    max-width: 90%;
 }
 
-/* ✅ Make Floor Buttons Appear in a Row */
+/* ✅ Center the Search Bar */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+#searchInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: white;
+    width: 80%;
+    max-width: 300px;
+    text-align: left;
+}
+
+/* ✅ Auto-Suggestions Styling */
+#suggestions {
+    list-style-type: none;
+    padding: 0;
+    margin: 0;
+    width: 80%;
+    max-width: 300px;
+    background: white;
+    border: 1px solid black;
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    transform: translateX(-50%);
+    display: none;
+    z-index: 1000;
+}
+
+#suggestions li {
+    padding: 8px;
+    cursor: pointer;
+    border-bottom: 1px solid #ccc;
+}
+
+#suggestions li:last-child {
+    border-bottom: none;
+}
+
+#suggestions li:hover {
+    background: lightgray;
+}
+
+/* ✅ Floor Button Styling */
 .floor-selector {
     display: flex;
     flex-wrap: wrap;
@@ -63,16 +115,31 @@ button.active {
     transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ✅ Floor Map Styling */
-.map-container {
-    position: relative;
-    display: inline-block;
-    margin-top: 20px;
-}
-
-#floorMap {
-    max-width: 90%;
-    height: auto;
-    border: none; /* ✅ Removes the border */
-    border-radius: 0; /* ✅ Ensures no rounded edges */
+/* ✅ Dark Mode */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #121212;
+        color: white;
+    }
+    #searchInput {
+        background: #333;
+        color: white;
+        border: 1px solid #777;
+    }
+    #suggestions {
+        background: #222;
+        border: 1px solid #555;
+    }
+    #suggestions li {
+        color: white;
+        border-bottom: 1px solid #444;
+    }
+    button {
+        background: #333;
+        color: white;
+        border: 1px solid #555;
+    }
+    button:hover {
+        background: #555;
+    }
 }

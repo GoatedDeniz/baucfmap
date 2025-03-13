@@ -10,7 +10,7 @@ const classrooms = {
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Floor color mapping
+// Floor color mapping for buttons
 const floorColors = {
     0: "#000000",
     2: "#E888B7",
