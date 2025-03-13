@@ -9,46 +9,25 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ✅ Header Image */
+/* ✅ Header Image Placeholder - Keeps Original Size */
 header {
     width: 100%;
-    height: 80px;
+    height: 80px; /* ✅ Match original header height */
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none;
+    background: none; /* ✅ Removes black background */
     padding: 0;
 }
 
 #headerImage {
-    height: 80px;
-    width: auto;
-    max-width: 90%;
+    height: 80px; /* ✅ Keep the same height */
+    width: auto; /* ✅ Maintain aspect ratio */
+    max-width: 90%; /* ✅ Adjusts dynamically */
 }
 
-/* ✅ Search Bar */
-.search-container {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    margin-top: 20px;
-    position: relative;
-}
-
-#searchInput {
-    padding: 10px;
-    font-size: 16px;
-    border: 1px solid black;
-    border-radius: 5px;
-    background: white;
-    width: 80%;
-    max-width: 300px;
-    text-align: left;
-}
-
-/* ✅ Floor Selector Buttons */
+/* ✅ Make Floor Buttons Appear in a Row */
 .floor-selector {
     display: flex;
     flex-wrap: wrap;
@@ -81,9 +60,10 @@ button:hover {
 
 button.active {
     font-weight: bold;
+    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ✅ Floor Map */
+/* ✅ Floor Map Styling */
 .map-container {
     position: relative;
     display: inline-block;
@@ -93,6 +73,6 @@ button.active {
 #floorMap {
     max-width: 90%;
     height: auto;
-    border: none;
-    border-radius: 0;
+    border: none; /* ✅ Removes the border */
+    border-radius: 0; /* ✅ Ensures no rounded edges */
 }
