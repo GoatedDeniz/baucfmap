@@ -12,19 +12,19 @@ body {
 /* ✅ Header Image Placeholder - Keeps Original Size */
 header {
     width: 100%;
-    height: 80px;
+    height: 80px; /* ✅ Match original header height */
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none;
+    background: none; /* ✅ Removes black background */
     padding: 0;
 }
 
 #headerImage {
-    height: 80px;
-    width: auto;
-    max-width: 90%;
+    height: 80px; /* ✅ Keep the same height */
+    width: auto; /* ✅ Maintain aspect ratio */
+    max-width: 90%; /* ✅ Adjusts dynamically */
 }
 
 /* ✅ Center the Search Bar */
@@ -37,6 +37,7 @@ header {
     position: relative;
 }
 
+/* ✅ Make Search Bar Responsive */
 #searchInput {
     padding: 10px;
     font-size: 16px;
@@ -48,7 +49,7 @@ header {
     text-align: left;
 }
 
-/* ✅ Auto-Suggestions Styling */
+/* ✅ Auto-Suggestions Styling with Borders */
 #suggestions {
     list-style-type: none;
     padding: 0;
@@ -68,18 +69,18 @@ header {
 #suggestions li {
     padding: 8px;
     cursor: pointer;
-    border-bottom: 1px solid #ccc;
+    border-bottom: 1px solid #ccc; /* ✅ Adds a separating line */
 }
 
 #suggestions li:last-child {
-    border-bottom: none;
+    border-bottom: none; /* ✅ Removes the last item's bottom border */
 }
 
 #suggestions li:hover {
     background: lightgray;
 }
 
-/* ✅ Floor Button Styling */
+/* ✅ Make Floor Buttons Appear in a Row */
 .floor-selector {
     display: flex;
     flex-wrap: wrap;
@@ -103,7 +104,6 @@ button {
     font-size: 16px;
     border-radius: 5px;
     text-align: center;
-    transition: background 0.3s, color 0.3s;
 }
 
 button:hover {
@@ -111,34 +111,65 @@ button:hover {
 }
 
 button.active {
+    background: lightgray !important;
     font-weight: bold;
-    transition: background 0.3s ease, color 0.3s ease;
 }
 
-/* ✅ Dark Mode */
+/* ✅ Floor Map Styling */
+.map-container {
+    position: relative;
+    display: inline-block;
+    margin-top: 20px;
+}
+
+#floorMap {
+    max-width: 90%;
+    height: auto;
+    border: none; /* ✅ Removes the border */
+    border-radius: 0; /* ✅ Ensures no rounded edges */
+}
+
+/* ✅ Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
     body {
         background-color: #121212;
         color: white;
     }
+
+    header {
+        background: #1f1f1f;
+    }
+
     #searchInput {
         background: #333;
         color: white;
         border: 1px solid #777;
     }
+
     #suggestions {
         background: #222;
         border: 1px solid #555;
     }
+
     #suggestions li {
         color: white;
-        border-bottom: 1px solid #444;
+        border-bottom: 1px solid #444; /* ✅ Keeps separators visible in dark mode */
     }
+
+    #suggestions li:last-child {
+        border-bottom: none;
+    }
+
+    #suggestions li:hover {
+        background: #444;
+    }
+
     button {
         background: #333;
         color: white;
         border: 1px solid #555;
     }
+
     button:hover {
         background: #555;
     }

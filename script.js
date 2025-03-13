@@ -10,19 +10,6 @@ const classrooms = {
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Floor color mapping for buttons
-const floorColors = {
-    0: "#000000",
-    2: "#E888B7",
-    3: "#618E3F",
-    4: "#2D54A1",
-    5: "#B6373D",
-    6: "#764695",
-    7: "#96D6D8",
-    8: "#F08211",
-    9: "#FFD022"
-};
-
 // Function to convert classroom names to valid file format
 function formatClassroomName(classroom) {
     return classroom.toLowerCase().replace(/[^a-z0-9]/g, "");
@@ -45,21 +32,13 @@ function showFloor(floor, highlight = null) {
         this.src = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/${baseFileName}.svg`;
     };
 
-    // Update button colors dynamically
-    document.querySelectorAll(".floor-selector button").forEach(button => {
-        button.classList.remove("active");
-        button.style.background = "white";  // Reset all buttons to default
-        button.style.color = "black"; // Reset text color
-    });
+    // Remove "active" class from all buttons
+    document.querySelectorAll(".floor-selector button").forEach(button => button.classList.remove("active"));
 
-    // Apply the color theme if available
+    // Add "active" class to the clicked button
     let selectedButton = document.querySelector(`button[onclick="showFloor(${floor})"]`);
     if (selectedButton) {
         selectedButton.classList.add("active");
-        if (floorColors[floor]) {
-            selectedButton.style.background = floorColors[floor]; // Apply custom color
-            selectedButton.style.color = "white"; // Ensure text contrast
-        }
     }
 
     // Ensure suggestions disappear when floor changes
