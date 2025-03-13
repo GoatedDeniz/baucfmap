@@ -104,16 +104,30 @@ button {
     font-size: 16px;
     border-radius: 5px;
     text-align: center;
+    transition: background 0.3s, color 0.3s;
 }
 
+/* ✅ Default Hover */
 button:hover {
     background: lightgray;
 }
 
+/* ✅ Floor-Specific Active Button Colors */
 button.active {
-    background: lightgray !important;
     font-weight: bold;
+    color: white !important;
 }
+
+/* Floor Colors */
+button[data-floor="0"].active { background: #000000; } /* Black */
+button[data-floor="2"].active { background: #E888B7; } /* Pink */
+button[data-floor="3"].active { background: #618E3F; } /* Green */
+button[data-floor="4"].active { background: #2D54A1; } /* Blue */
+button[data-floor="5"].active { background: #B6373D; } /* Red */
+button[data-floor="6"].active { background: #764695; } /* Purple */
+button[data-floor="7"].active { background: #96D6D8; } /* Cyan */
+button[data-floor="8"].active { background: #F08211; } /* Orange */
+button[data-floor="9"].active { background: #FFD022; } /* Yellow */
 
 /* ✅ Floor Map Styling */
 .map-container {
