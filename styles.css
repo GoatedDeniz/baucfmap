@@ -12,19 +12,19 @@ body {
 /* ✅ Header Image Placeholder - Keeps Original Size */
 header {
     width: 100%;
-    height: 80px; /* ✅ Match original header height */
+    height: 80px; 
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none; /* ✅ Removes black background */
+    background: none; 
     padding: 0;
 }
 
 #headerImage {
-    height: 80px; /* ✅ Keep the same height */
-    width: auto; /* ✅ Maintain aspect ratio */
-    max-width: 90%; /* ✅ Adjusts dynamically */
+    height: 80px;
+    width: auto;
+    max-width: 90%; 
 }
 
 /* ✅ Center the Search Bar */
@@ -37,25 +37,33 @@ header {
     position: relative;
 }
 
-/* ✅ Make Search Bar Responsive */
+/* ✅ Improved Search Bar Styling */
 #searchInput {
-    padding: 10px;
+    padding: 12px;
     font-size: 16px;
     border: 1px solid black;
-    border-radius: 5px;
+    border-radius: 8px;
     background: white;
     width: 80%;
-    max-width: 300px;
+    max-width: 320px;
     text-align: left;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease-in-out;
 }
 
-/* ✅ Auto-Suggestions Styling with Borders */
+#searchInput:focus {
+    border-color: #555;
+    outline: none;
+    box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* ✅ Auto-Suggestions Styling */
 #suggestions {
     list-style-type: none;
     padding: 0;
     margin: 0;
     width: 80%;
-    max-width: 300px;
+    max-width: 320px;
     background: white;
     border: 1px solid black;
     position: absolute;
@@ -64,61 +72,65 @@ header {
     transform: translateX(-50%);
     display: none;
     z-index: 1000;
+    border-radius: 5px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.1);
 }
 
 #suggestions li {
-    padding: 8px;
+    padding: 10px;
     cursor: pointer;
-    border-bottom: 1px solid #ccc; /* ✅ Adds a separating line */
+    border-bottom: 1px solid #ccc;
 }
 
 #suggestions li:last-child {
-    border-bottom: none; /* ✅ Removes the last item's bottom border */
+    border-bottom: none;
 }
 
 #suggestions li:hover {
     background: lightgray;
 }
 
-/* ✅ Make Floor Buttons Appear in a Row */
+/* ✅ Improved Floor Buttons */
 .floor-selector {
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     align-items: center;
-    gap: 8px;
+    gap: 10px;
     margin-top: 20px;
     max-width: 100%;
-    padding: 0 10px;
+    padding: 0 15px;
 }
 
 button {
     flex: 1 1 auto;
     width: auto;
-    min-width: 80px;
-    max-width: 100px;
-    padding: 10px;
+    min-width: 90px;
+    max-width: 120px;
+    padding: 12px;
     border: 1px solid black;
     background: white;
     cursor: pointer;
     font-size: 16px;
-    border-radius: 5px;
+    border-radius: 8px;
     text-align: center;
-    transition: background 0.3s, color 0.3s;
-}
-
-/* ✅ Default Hover */
-button:hover {
-    background: lightgray;
-}
-
-/* ✅ Floor-Specific Active Button Colors */
-button.active {
     font-weight: bold;
-    color: white !important;
+    transition: all 0.3s ease-in-out;
+    box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
 }
 
-/* Floor Colors */
+/* ✅ Default Hover Effect */
+button:hover {
+    background: #ddd;
+}
+
+/* ✅ Active Button Colors */
+button.active {
+    color: white !important;
+    transform: scale(1.05);
+}
+
+/* Floor-Specific Active Button Colors */
 button[data-floor="0"].active { background: #000000; } /* Black */
 button[data-floor="2"].active { background: #E888B7; } /* Pink */
 button[data-floor="3"].active { background: #618E3F; } /* Green */
@@ -129,18 +141,19 @@ button[data-floor="7"].active { background: #96D6D8; } /* Cyan */
 button[data-floor="8"].active { background: #F08211; } /* Orange */
 button[data-floor="9"].active { background: #FFD022; } /* Yellow */
 
-/* ✅ Floor Map Styling */
+/* ✅ Spacing for Floor Map */
 .map-container {
     position: relative;
     display: inline-block;
-    margin-top: 30px;
+    margin-top: 40px; /* Increased space */
 }
 
+/* ✅ Floor Map Styling */
 #floorMap {
     max-width: 90%;
     height: auto;
-    border: none; /* ✅ Removes the border */
-    border-radius: 0; /* ✅ Ensures no rounded edges */
+    border: none; 
+    border-radius: 0; 
 }
 
 /* ✅ Dark Mode Styles */
@@ -167,7 +180,7 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
 
     #suggestions li {
         color: white;
-        border-bottom: 1px solid #444; /* ✅ Keeps separators visible in dark mode */
+        border-bottom: 1px solid #444;
     }
 
     #suggestions li:last-child {
