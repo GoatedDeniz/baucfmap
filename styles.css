@@ -133,7 +133,7 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
 .map-container {
     position: relative;
     display: inline-block;
-    margin-top: 50px;
+    margin-top: 30px;
 }
 
 #floorMap {
