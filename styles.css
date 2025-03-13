@@ -9,7 +9,7 @@ body {
     transition: background 0.3s, color 0.3s;
 }
 
-/* ✅ Header Image Placeholder - Keeps Original Size */
+/* ✅ Header Image */
 header {
     width: 100%;
     height: 80px;
@@ -27,7 +27,28 @@ header {
     max-width: 90%;
 }
 
-/* ✅ Floor Selector Styling */
+/* ✅ Search Bar */
+.search-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+    position: relative;
+}
+
+#searchInput {
+    padding: 10px;
+    font-size: 16px;
+    border: 1px solid black;
+    border-radius: 5px;
+    background: white;
+    width: 80%;
+    max-width: 300px;
+    text-align: left;
+}
+
+/* ✅ Floor Selector Buttons */
 .floor-selector {
     display: flex;
     flex-wrap: wrap;
@@ -39,42 +60,30 @@ header {
     padding: 0 10px;
 }
 
-/* ✅ Custom Floor Colors */
-button[data-floor="-2"] { background: #000000; color: white; }
-button[data-floor="2"] { background: #E888B7; color: white; }
-button[data-floor="3"] { background: #618E3F; color: white; }
-button[data-floor="4"] { background: #2D541A; color: white; }
-button[data-floor="5"] { background: #B6373D; color: white; }
-button[data-floor="6"] { background: #764695; color: white; }
-button[data-floor="7"] { background: #96D6D8; color: black; }
-button[data-floor="8"] { background: #F08211; color: white; }
-button[data-floor="9"] { background: #FFD022; color: black; }
-
-/* ✅ Button Styles */
 button {
     flex: 1 1 auto;
     width: auto;
     min-width: 80px;
     max-width: 100px;
     padding: 10px;
-    border: none;
+    border: 1px solid black;
+    background: white;
     cursor: pointer;
     font-size: 16px;
     border-radius: 5px;
     text-align: center;
-    transition: 0.3s;
+    transition: background 0.3s, color 0.3s;
 }
 
 button:hover {
-    opacity: 0.8;
+    background: lightgray;
 }
 
 button.active {
-    border: 2px solid black;
     font-weight: bold;
 }
 
-/* ✅ Floor Map Styling */
+/* ✅ Floor Map */
 .map-container {
     position: relative;
     display: inline-block;

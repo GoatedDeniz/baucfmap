@@ -9,11 +9,11 @@
 </head>
 <body>
     <!-- Header -->
-<header>
-    <img id="headerImage" src="title.svg">
-</header>
+    <header>
+        <img id="headerImage" src="title.svg">
+    </header>
 
-    <!-- Search Bar with Auto-Suggestions -->
+    <!-- Search Bar -->
     <div class="search-container">
         <input type="text" id="searchInput" placeholder="🔍 Search for a classroom" autocomplete="off">
         <ul id="suggestions"></ul>
@@ -21,21 +21,21 @@
 
     <!-- Floor Selection Menu -->
     <div class="floor-selector">
-        <button data-floor="9" onclick="showFloor(9)">Floor 9</button>
-        <button data-floor="8" onclick="showFloor(8)">Floor 8</button>
-        <button data-floor="7" onclick="showFloor(7)">Floor 7</button>
-        <button data-floor="6" onclick="showFloor(6)">Floor 6</button>
-        <button data-floor="5" onclick="showFloor(5)">Floor 5</button>
-        <button data-floor="4" onclick="showFloor(4)">Floor 4</button>
-        <button data-floor="3" onclick="showFloor(3)">Floor 3</button>
-        <button data-floor="2" onclick="showFloor(2)">Floor 2</button>
-        <button data-floor="0" onclick="showFloor(0)">Floor 0</button>
-        <button data-floor="-2" onclick="showFloor(-2)">Floor -2</button>
+        <button onclick="showFloor(9)">Floor 9</button>
+        <button onclick="showFloor(8)">Floor 8</button>
+        <button onclick="showFloor(7)">Floor 7</button>
+        <button onclick="showFloor(6)">Floor 6</button>
+        <button onclick="showFloor(5)">Floor 5</button>
+        <button onclick="showFloor(4)">Floor 4</button>
+        <button onclick="showFloor(3)">Floor 3</button>
+        <button onclick="showFloor(2)">Floor 2</button>
+        <button onclick="showFloor(0)">Floor 0</button>
+        <button onclick="showFloor(-2)">Floor -2</button>
     </div>
 
     <!-- Floor Map Display -->
     <div class="map-container">
-        <img id="floorMap" src="https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/floor-0.svg" alt="Floor Map" width="800" height="600">
+        <img id="floorMap" src="" alt="Floor Map" width="800" height="600">
     </div>
 </body>
 </html>
