@@ -52,7 +52,7 @@ header {
 }
 
 #searchInput:focus {
-    border-color: #555;
+    border-color: #0E3192;
     outline: none;
     box-shadow: 2px 2px 15px rgba(0, 0, 0, 0.2);
 }
