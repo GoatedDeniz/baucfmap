@@ -134,6 +134,17 @@ document.getElementById("info-icon").addEventListener("click", function() {
     infoText.style.display = (infoText.style.display === "block") ? "none" : "block";
 });
 
+document.getElementById("infoIcon").addEventListener("click", function () {
+    let infoText = document.getElementById("infoText");
+
+    // Toggle visibility
+    if (infoText.classList.contains("active")) {
+        infoText.classList.remove("active");
+    } else {
+        infoText.classList.add("active");
+    }
+});
+
 // Listen for input changes to update suggestions dynamically
 document.getElementById("searchInput").addEventListener("input", function () {
     updateSuggestions(this.value.toUpperCase().trim());
