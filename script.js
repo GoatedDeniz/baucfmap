@@ -137,25 +137,38 @@ document.getElementById("searchInput").addEventListener("input", function () {
 const infoIcon = document.getElementById("infoIcon");
 const infoContainer = document.querySelector(".info-container");
 
+// Function to toggle the info box
 function toggleInfo() {
-    let infoContainer = document.querySelector(".info-container");
+    let infoText = document.getElementById("infoText");
     let infoIcon = document.getElementById("infoIcon");
 
-    // Toggle visibility
-    infoContainer.classList.toggle("active");
+    // Toggle visibility of info box
+    infoText.classList.toggle("active");
 
-    // Restart animation each time it's clicked
-    infoIcon.classList.remove("animate");
-    void infoIcon.offsetWidth; // Forces reflow to restart animation
+    // Add grow-shrink animation every time it's clicked
     infoIcon.classList.add("animate");
+    setTimeout(() => {
+        infoIcon.classList.remove("animate");
+    }, 200); // Remove animation class after animation completes
 
-    // Ensure the correct icon is applied for dark mode
-    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+    // ✅ Check for dark mode and switch icon accordingly
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        infoIcon.src = "info-dark.svg"; // Dark mode icon
+    } else {
+        infoIcon.src = "info.svg"; // Light mode icon
+    }
+}
+
+// ✅ Ensure correct icon loads on page load based on dark mode
+window.addEventListener("DOMContentLoaded", function() {
+    let infoIcon = document.getElementById("infoIcon");
+
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
         infoIcon.src = "info-dark.svg";
     } else {
         infoIcon.src = "info.svg";
     }
-}
+});
 
 // Detect dark mode changes and update the floor map dynamically
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
