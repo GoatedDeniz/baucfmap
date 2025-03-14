@@ -141,13 +141,20 @@ function toggleInfo() {
     let infoContainer = document.querySelector(".info-container");
     let infoIcon = document.getElementById("infoIcon");
 
-    // Toggle visibility of the text box
+    // Toggle visibility
     infoContainer.classList.toggle("active");
 
-    // Trigger the smooth grow animation every time it's clicked
+    // Restart animation each time it's clicked
     infoIcon.classList.remove("animate");
-    void infoIcon.offsetWidth; // **Forces reflow to restart animation**
+    void infoIcon.offsetWidth; // Forces reflow to restart animation
     infoIcon.classList.add("animate");
+
+    // Ensure the correct icon is applied for dark mode
+    if (window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        infoIcon.src = "info-dark.svg";
+    } else {
+        infoIcon.src = "info.svg";
+    }
 }
 
 // Detect dark mode changes and update the floor map dynamically
