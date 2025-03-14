@@ -218,15 +218,72 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     border-radius: 0; 
 }
 
-/* ✅ Default Info Icon */
+/* ✅ Info Icon - Positioned Bottom Left */
+.info-container {
+    position: fixed;
+    bottom: 5px;
+    left: 10px;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+}
+
+/* ✅ Default Icon Styling */
 .info-icon {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.15s ease-in-out; /* ✅ Smooth animation */
+}
+
+/* Smooth grow animation on click */
+@keyframes growAndShrink {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); } /* Slightly grows */
+    100% { transform: scale(1); } /* Returns to original size */
+}
+
+/* ✅ Info Text - Supports Multiple Lines */
+.info-text {
+    display: none;
+    position: absolute;
+    bottom: 45px;
+    left: 35px;
+    background: white;
+    color: black;
+    padding: 10px 15px;
+    border-radius: 5px;
+    font-size: 14px;
+    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    width: 220px; /* ✅ Adjust width */
+    max-width: 250px; /* ✅ Prevents it from becoming too wide */
+    white-space: normal; /* ✅ Allows multi-line text */
+    word-wrap: break-word; /* ✅ Ensures long words wrap properly */
+    text-align: left;
+}
+
+/* ✅ Show Info Text when Active */
+.info-container.active .info-text {
+    display: block;
+}
+
+/* ✅ Dark Mode */
+@media (prefers-color-scheme: dark) {
+    .info-text {
+        background: #222;
+        color: white;
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
+    }
+}
+
+/* Default Light Mode Icon */
+#infoIcon {
     width: 30px; 
     height: 30px;
     cursor: pointer;
     transition: transform 0.2s ease-out;
 }
 
-/* ✅ Grow and Shrink Animation on Click */
+/* Apply grow animation on click */
 @keyframes growAndShrink {
     0% { transform: scale(1); }
     50% { transform: scale(1.2); }
@@ -237,33 +294,16 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     animation: growAndShrink 0.2s ease-out;
 }
 
-/* ✅ Styling for Info Box */
-.info-text {
-    display: none;
-    position: absolute;
-    bottom: 50px;
-    left: 10px;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px;
-    border-radius: 8px;
-    font-size: 14px;
-    max-width: 250px;
-    box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
-    white-space: pre-line; /* ✅ Enables multi-line support */
-}
-
-/* ✅ Show the text box when active */
-.info-text.active {
-    display: block;
-}
-
-/* ✅ Dark Mode Styling for Info Box */
+/* Dark Mode Icon */
 @media (prefers-color-scheme: dark) {
-    .info-text {
-        background: rgba(255, 255, 255, 0.9);
-        color: black;
+    #infoIcon {
+        content: url('info-dark.svg'); /* Switch to dark mode icon */
     }
+}
+
+/* Apply animation class dynamically */
+.info-icon.animate {
+    animation: growAndShrink 0.2s ease-out;
 }
 
 /* ✅ Dark Mode Styles */
