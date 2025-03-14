@@ -151,7 +151,7 @@ button {
     min-width: 80px; /* Slightly reduced */
     max-width: 110px; /* Prevents excessive growth */
     padding: 10px; /* Reduced padding to fit better */
-    border: 1px solid black;
+    border: 1px solid #0E3192;
     background: white;
     cursor: pointer;
     font-size: 15px; /* Slightly smaller text */
