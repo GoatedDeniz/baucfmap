@@ -137,10 +137,18 @@ document.getElementById("searchInput").addEventListener("input", function () {
 const infoIcon = document.getElementById("infoIcon");
 const infoContainer = document.querySelector(".info-container");
 
-// Toggle info text on click
-infoIcon.addEventListener("click", function () {
+function toggleInfo() {
+    let infoContainer = document.querySelector(".info-container");
+    let infoIcon = document.getElementById("infoIcon");
+
+    // Toggle visibility of the text box
     infoContainer.classList.toggle("active");
-});
+
+    // Trigger the smooth grow animation every time it's clicked
+    infoIcon.classList.remove("animate");
+    void infoIcon.offsetWidth; // **Forces reflow to restart animation**
+    infoIcon.classList.add("animate");
+}
 
 // Detect dark mode changes and update the floor map dynamically
 window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
