@@ -22,10 +22,20 @@ header {
 }
 
 #headerImage {
-    height: 80px;
-    width: auto;
-    max-width: 90%; 
-    margin-top: 10px;
+    height: 80px; /* Keep the same height */
+    width: auto; /* Maintain aspect ratio */
+    max-width: 90%; /* Adjusts dynamically */
+    margin-top: 20px; /* Moves the image down */
+    background: none; /* Ensures no background */
+    border: none; /* Removes any border */
+}
+
+/* Ensures no border or background in dark mode */
+@media (prefers-color-scheme: dark) {
+    #headerImage {
+        background: none !important;
+        border: none !important;
+    }
 }
 
 /* ✅ Center the Search Bar */
