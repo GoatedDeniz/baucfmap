@@ -221,8 +221,8 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
 /* ✅ Info Icon - Positioned Bottom Left */
 .info-container {
     position: fixed;
-    bottom: 5px;
-    left: 10px;
+    bottom: 10px;
+    left: px;
     display: flex;
     align-items: center;
     cursor: pointer;
@@ -272,32 +272,6 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
         background: #222;
         color: white;
         box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
-    }
-}
-
-/* Default Light Mode Icon */
-#infoIcon {
-    width: 30px; 
-    height: 30px;
-    cursor: pointer;
-    transition: transform 0.2s ease-out;
-}
-
-/* Apply grow animation on click */
-@keyframes growAndShrink {
-    0% { transform: scale(1); }
-    50% { transform: scale(1.2); }
-    100% { transform: scale(1); }
-}
-
-.info-icon.animate {
-    animation: growAndShrink 0.2s ease-out;
-}
-
-/* Dark Mode Icon */
-@media (prefers-color-scheme: dark) {
-    #infoIcon {
-        content: url('info-dark.svg'); /* Switch to dark mode icon */
     }
 }
 
