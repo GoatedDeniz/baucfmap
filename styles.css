@@ -218,6 +218,39 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     border-radius: 0; 
 }
 
+/* ✅ Developer Info Plug-In (Bottom Left Corner) */
+#info-container {
+    position: fixed;
+    bottom: 15px;
+    left: 15px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    cursor: pointer;
+}
+
+#info-icon {
+    width: 30px; /* Adjust icon size */
+    height: 30px;
+    transition: transform 0.3s ease-in-out;
+}
+
+#info-icon:hover {
+    transform: scale(1.1); /* Slight zoom effect */
+}
+
+/* Hidden text box */
+#info-text {
+    display: none;
+    background: rgba(0, 0, 0, 0.8);
+    color: white;
+    padding: 10px;
+    border-radius: 5px;
+    font-size: 14px;
+    max-width: 250px;
+    white-space: pre-wrap;
+}
+
 /* ✅ Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
     body {
