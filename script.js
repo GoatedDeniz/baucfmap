@@ -143,7 +143,11 @@ function toggleInfo() {
     let infoIcon = document.getElementById("infoIcon");
 
     // Toggle visibility of info box
-    infoText.classList.toggle("active");
+    if (infoText.style.display === "block") {
+        infoText.style.display = "none";
+    } else {
+        infoText.style.display = "block";
+    }
 
     // Add grow-shrink animation every time it's clicked
     infoIcon.classList.add("animate");
@@ -158,6 +162,17 @@ function toggleInfo() {
         infoIcon.src = "info.svg"; // Light mode icon
     }
 }
+
+// ✅ Ensure correct icon loads on page load based on dark mode
+window.addEventListener("DOMContentLoaded", function() {
+    let infoIcon = document.getElementById("infoIcon");
+
+    if (window.matchMedia && window.matchMedia("(prefers-color-scheme: dark)").matches) {
+        infoIcon.src = "info-dark.svg";
+    } else {
+        infoIcon.src = "info.svg";
+    }
+});
 
 // ✅ Ensure correct icon loads on page load based on dark mode
 window.addEventListener("DOMContentLoaded", function() {

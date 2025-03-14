@@ -242,9 +242,9 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     100% { transform: scale(1); } /* Returns to original size */
 }
 
-/* ✅ Info Text - Supports Multiple Lines */
+/* ✅ Info Text - Supports Multiple Lines & Fixes Display */
 .info-text {
-    display: none;
+    display: none; /* ✅ Hides by default */
     position: absolute;
     bottom: 45px;
     left: 35px;
@@ -259,11 +259,7 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     white-space: normal; /* ✅ Allows multi-line text */
     word-wrap: break-word; /* ✅ Ensures long words wrap properly */
     text-align: left;
-}
-
-/* ✅ Show Info Text when Active */
-.info-container.active .info-text {
-    display: block;
+    z-index: 1000;
 }
 
 /* ✅ Dark Mode */
@@ -273,6 +269,11 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
         color: white;
         box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
     }
+}
+
+/* ✅ Show Info Text when Active */
+.info-container.active .info-text {
+    display: block;
 }
 
 /* Apply animation class dynamically */
