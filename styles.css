@@ -256,7 +256,7 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     button {
         background: #333;
         color: white;
-        border: 1px solid #555;
+        border: 1px solid #0E3192;
     }
 
     button:hover {
