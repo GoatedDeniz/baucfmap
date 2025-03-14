@@ -232,12 +232,12 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     #searchInput {
         background: #333;
         color: white;
-        border: 1px solid #0E3192;
+        border: 1px solid #777;
     }
 
     #suggestions {
         background: #222;
-        border: 1px solid #0E3192;
+        border: 1px solid #555;
     }
 
     #suggestions li {
@@ -256,7 +256,7 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     button {
         background: #333;
         color: white;
-        border: 1px solid #0E3192;
+        border: 1px solid #555;
     }
 
     button:hover {
