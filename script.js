@@ -128,26 +128,18 @@ document.addEventListener("click", function (event) {
     }
 });
 
-// Function to toggle the developer info text
-document.getElementById("info-icon").addEventListener("click", function() {
-    let infoText = document.getElementById("info-text");
-    infoText.style.display = (infoText.style.display === "block") ? "none" : "block";
-});
-
-document.getElementById("infoIcon").addEventListener("click", function () {
-    let infoText = document.getElementById("infoText");
-
-    // Toggle visibility
-    if (infoText.classList.contains("active")) {
-        infoText.classList.remove("active");
-    } else {
-        infoText.classList.add("active");
-    }
-});
-
 // Listen for input changes to update suggestions dynamically
 document.getElementById("searchInput").addEventListener("input", function () {
     updateSuggestions(this.value.toUpperCase().trim());
+});
+
+// Get elements
+const infoIcon = document.getElementById("infoIcon");
+const infoContainer = document.querySelector(".info-container");
+
+// Toggle info text on click
+infoIcon.addEventListener("click", function () {
+    infoContainer.classList.toggle("active");
 });
 
 // Detect dark mode changes and update the floor map dynamically
@@ -157,5 +149,4 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', fun
         let floor = activeFloor.getAttribute("data-floor");
         showFloor(floor);
     }
-    
 });

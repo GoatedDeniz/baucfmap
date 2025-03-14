@@ -218,93 +218,57 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     border-radius: 0; 
 }
 
-/* ✅ Developer Info Plug-In (Bottom Left Corner) */
-#info-container {
-    position: fixed;
-    bottom: 15px;
-    left: 15px;
-    display: flex;
-    align-items: center;
-    gap: 10px;
-    cursor: pointer;
-}
-
-#info-icon {
-    width: 30px; /* Adjust icon size */
-    height: 30px;
-    transition: transform 0.3s ease-in-out;
-}
-
-#info-icon:hover {
-    transform: scale(1.1); /* Slight zoom effect */
-}
-
-/* Hidden text box */
-#info-text {
-    display: none;
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px;
-    border-radius: 5px;
-    font-size: 14px;
-    max-width: 250px;
-    white-space: pre-wrap;
-}
-
-/* ✅ Info Icon Positioning */
+/* ✅ Info Icon - Positioned Bottom Left */
 .info-container {
     position: fixed;
-    bottom: 15px;
-    left: 15px;
-    cursor: pointer;
-    z-index: 1000;
+    bottom: 20px;
+    left: 20px;
     display: flex;
-    flex-direction: column;
     align-items: center;
+    cursor: pointer;
 }
 
-/* ✅ Info Icon Styling */
-#infoIcon {
+/* ✅ Default Icon Styling */
+.info-icon {
     width: 30px;
     height: 30px;
-    transition: transform 0.15s ease-out; /* Smooth animation */
+    transition: transform 0.15s ease-in-out; /* ✅ Smooth animation */
 }
 
-/* ✅ Click Animation: Grow & Shrink */
-#infoIcon:active {
+/* ✅ Click Animation (Fast Grow & Return to Normal) */
+.info-icon:active {
     transform: scale(1.3);
 }
 
-/* ✅ Info Text Styling */
-#infoText {
+/* ✅ Info Text - Initially Hidden */
+.info-text {
     display: none;
     position: absolute;
     bottom: 40px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: rgba(0, 0, 0, 0.8);
-    color: white;
-    padding: 10px;
+    left: 35px;
+    background: white;
+    color: black;
+    padding: 8px 12px;
     border-radius: 5px;
     font-size: 14px;
-    width: 200px;
-    text-align: center;
     box-shadow: 2px 2px 10px rgba(0, 0, 0, 0.2);
+    white-space: nowrap;
 }
 
-/* ✅ Show text when active */
-#infoText.active {
+/* ✅ Show Info Text when Active */
+.info-container.active .info-text {
     display: block;
 }
 
-/* ✅ Dark Mode Support */
+/* ✅ Dark Mode Styles */
 @media (prefers-color-scheme: dark) {
-    #infoIcon {
-        content: url('info-dark.svg'); /* Load dark mode icon */
+    .info-icon {
+        content: url('info-dark.svg'); /* ✅ Auto-switch icon */
     }
-    #infoText {
-        background: rgba(255, 255, 255, 0.9);
-        color: black;
+    .info-text {
+        background: #222;
+        color: white;
+        box-shadow: 2px 2px 10px rgba(255, 255, 255, 0.1);
     }
 }
 
