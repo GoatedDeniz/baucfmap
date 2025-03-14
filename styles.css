@@ -275,6 +275,32 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
     }
 }
 
+/* Default Light Mode Icon */
+#infoIcon {
+    width: 30px; 
+    height: 30px;
+    cursor: pointer;
+    transition: transform 0.2s ease-out;
+}
+
+/* Apply grow animation on click */
+@keyframes growAndShrink {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.2); }
+    100% { transform: scale(1); }
+}
+
+.info-icon.animate {
+    animation: growAndShrink 0.2s ease-out;
+}
+
+/* Dark Mode Icon */
+@media (prefers-color-scheme: dark) {
+    #infoIcon {
+        content: url('info-dark.svg'); /* Switch to dark mode icon */
+    }
+}
+
 /* Apply animation class dynamically */
 .info-icon.animate {
     animation: growAndShrink 0.2s ease-out;
