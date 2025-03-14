@@ -41,7 +41,7 @@ header {
 #searchInput {
     padding: 12px;
     font-size: 16px;
-    border: 1px solid black;
+    border: 1px solid #0E3192;
     border-radius: 8px;
     background: white;
     width: 80%;
@@ -65,7 +65,7 @@ header {
     width: 80%;
     max-width: 320px;
     background: white;
-    border: 1px solid black;
+    border: 1px solid #0E3192;
     position: absolute;
     top: 100%;
     left: 50%;
@@ -108,7 +108,7 @@ button {
     min-width: 90px;
     max-width: 120px;
     padding: 12px;
-    border: 1px solid black;
+    border: 1px solid #0E3192;
     background: white;
     cursor: pointer;
     font-size: 16px;
