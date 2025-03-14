@@ -25,6 +25,7 @@ header {
     height: 80px;
     width: auto;
     max-width: 90%; 
+    margin-top: 10px;
 }
 
 /* ✅ Center the Search Bar */
