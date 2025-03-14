@@ -12,20 +12,27 @@ body {
 /* ✅ Header Image Placeholder - Keeps Original Size */
 header {
     width: 100%;
-    height: 80px; 
+    height: auto;
     text-align: center;
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none; 
+    background: none !important; /* ✅ Ensures no background */
     padding: 0;
+}
+
+/* Fixes any remaining dark mode background */
+@media (prefers-color-scheme: dark) {
+    header {
+        background: none !important; /* ✅ Forces dark mode to not add background */
+    }
 }
 
 #headerImage {
     height: 80px; /* Keep the same height */
     width: auto; /* Maintain aspect ratio */
     max-width: 90%; /* Adjusts dynamically */
-    margin-top: 20px; /* Moves the image down */
+    margin-top: 15px; /* Moves the image down */
     background: none; /* Ensures no background */
     border: none; /* Removes any border */
 }
