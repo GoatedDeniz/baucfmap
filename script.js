@@ -10,32 +10,40 @@ const classrooms = {
     "GLT705": 7, "GLT701": 7, "GLT704": 7, "GLT702": 7, "GLTMAC03": 7, "GLT703": 7
 };
 
-// Detect if dark mode is enabled
+// Floor color mapping
+const floorColors = {
+    "-2": "#000000", "0": "#000000", "2": "#E888B7", "3": "#618E3F", "4": "#2D54A1",
+    "5": "#B6373D", "6": "#764695", "7": "#96D6D8", "8": "#F08211", "9": "#FFD022"
+};
+
+// Function to check if dark mode is enabled
 function isDarkMode() {
     return window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches;
 }
 
-// Function to format classroom names to valid file format
+// Function to convert classroom names to valid file format
 function formatClassroomName(classroom) {
     return classroom.toLowerCase().replace(/[^a-z0-9]/g, "");
 }
 
-// Function to show the selected floor (Loads Dark Mode Versions if Needed)
+// Function to show the selected floor (Now Loads Highlighted SVGs if available)
 function showFloor(floor, highlight = null) {
     let floorMap = document.getElementById("floorMap");
 
-    // Determine file naming format
+    // Check if dark mode is enabled
     let darkModeSuffix = isDarkMode() ? "-dark" : "";
+
+    // Determine the correct file to load
     let baseFileName = `floor-${floor}${darkModeSuffix}`;
     let fileToLoad = highlight ? `${baseFileName}.${formatClassroomName(highlight)}.svg` : `${baseFileName}.svg`;
 
-    // Load SVG from GitHub
+    // Load SVG from GitHub raw link
     const svgUrl = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/${fileToLoad}`;
-    
+
     floorMap.src = svgUrl;
-    floorMap.onerror = function() {
-        this.onerror = null; // Prevent infinite loop if fallback fails
-        this.src = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/floor-${floor}.svg`; // Default to light mode version
+    floorMap.onerror = function () {
+        this.onerror = null; // Prevent infinite loop if fallback also fails
+        this.src = `https://raw.githubusercontent.com/GoatedDeniz/baucfmap/main/floor-${floor}.svg`; // Default to light mode if dark mode file is missing
     };
 
     // Remove "active" class from all buttons
@@ -64,11 +72,11 @@ function showFloor(floor, highlight = null) {
     hideSuggestions();
 }
 
-// Function to handle search and load highlighted version
-document.getElementById("searchInput").addEventListener("keydown", function(event) {
+// Function to handle search
+document.getElementById("searchInput").addEventListener("keydown", function (event) {
     if (event.key === "Enter") {
         let query = this.value.toUpperCase().trim();
-        
+
         if (classrooms[query]) {
             showFloor(classrooms[query], query); // Switch to highlighted floor plan
             this.value = ""; // Clear search input
@@ -90,12 +98,12 @@ function updateSuggestions(query) {
     }
 
     let matched = Object.keys(classrooms).filter(classroom => classroom.includes(query));
-    
+
     if (matched.length > 0) {
         matched.forEach(classroom => {
             let suggestion = document.createElement("li");
             suggestion.textContent = classroom;
-            suggestion.onclick = function() {
+            suggestion.onclick = function () {
                 document.getElementById("searchInput").value = classroom;
                 showFloor(classrooms[classroom], classroom); // Show highlighted version
                 hideSuggestions();
@@ -114,19 +122,19 @@ function hideSuggestions() {
 }
 
 // Hide suggestions when clicking outside the search bar
-document.addEventListener("click", function(event) {
+document.addEventListener("click", function (event) {
     if (!event.target.closest(".search-container")) {
         hideSuggestions();
     }
 });
 
 // Listen for input changes to update suggestions dynamically
-document.getElementById("searchInput").addEventListener("input", function() {
+document.getElementById("searchInput").addEventListener("input", function () {
     updateSuggestions(this.value.toUpperCase().trim());
 });
 
-// Automatically switch maps if dark mode changes
-window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function() {
+// Detect dark mode changes and update the floor map dynamically
+window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', function () {
     let activeFloor = document.querySelector(".floor-selector button.active");
     if (activeFloor) {
         let floor = activeFloor.getAttribute("data-floor");
