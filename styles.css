@@ -221,8 +221,8 @@ button[data-floor="9"].active { background: #FFD022; } /* Yellow */
 /* ✅ Info Icon - Positioned Bottom Left */
 .info-container {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
+    bottom: 10px;
+    left: 10px;
     display: flex;
     align-items: center;
     cursor: pointer;
