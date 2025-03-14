@@ -40,7 +40,7 @@
       }
     </style>
   </defs>
-  <rect class="cls-1" x="242" y="102.5" width="229.5" height="340.2"/>
+  <polygon class="cls-1" points="471.5 204.7 471.5 442.7 242 442.7 242 102.5 418.8 102.5 418.8 204.7 471.5 204.7"/>
   <g>
     <path class="cls-4" d="M34.3,199.5H.5v-23.6h4.5v17.6h10.1v-15.2h4.5v15.2h14.6v6Z"/>
     <path class="cls-4" d="M34.3,170.1H.5v-6h29.1v-17.2h4.6v23.1Z"/>
@@ -52,7 +52,7 @@
   <rect class="cls-2" x="482" y="227.3" width="145.4" height="96.9"/>
   <rect class="cls-2" x="114.6" y="114.6" width="106.4" height="121.1"/>
   <rect class="cls-2" x="202.1" y="6.4" width="90.9" height="84.1"/>
-  <rect class="cls-3" x="418.8" y="101.4" width="145.4" height="103.3"/>
+  <polygon class="cls-3" points="564.2 101.4 564.2 204.7 418.8 204.7 418.8 128.2 511.4 128.2 511.4 101.4 564.2 101.4"/>
   <rect class="cls-2" x="306.4" y="29" width="93.2" height="61.5"/>
   <g>
     <rect class="cls-8" x="291.3" y="471.2" width="83.8" height="30.4"/>
