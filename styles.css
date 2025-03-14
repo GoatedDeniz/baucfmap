@@ -174,6 +174,7 @@ button.active {
 }
 
 /* Floor-Specific Active Button Colors */
+button[data-floor="-2"].active { background: #2D3F3E; } /* Black */
 button[data-floor="0"].active { background: #000000; } /* Black */
 button[data-floor="2"].active { background: #E888B7; } /* Pink */
 button[data-floor="3"].active { background: #618E3F; } /* Green */
